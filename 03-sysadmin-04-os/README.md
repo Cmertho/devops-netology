@@ -50,6 +50,15 @@
     Nov 24 09:11:32 vagrant node_exporter[1186]: time="2021-11-24T09:11:32Z" level=info msg=" - zfs" source="node_exporter.go:104"
     Nov 24 09:11:32 vagrant node_exporter[1186]: time="2021-11-24T09:11:32Z" level=info msg="Listening on :9100" source="node_exporter.go:170"
 
+
+* Дополнение к заданию: <b>Предлагаю уточнить как именно в службу будут передаваться дополнительные опции. Примеры можно посмотреть вот здесь:</b>
+
+Ответ:
+
+    vagrant@vagrant:/etc/systemd/system$ sudo cat /proc/1809/environ
+    LANG=en_US.UTF-8LANGUAGE=en_US:PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+    INVOCATION_ID=0fcb24d52895405c875cbb9cbc28d3ffJOURNAL_STREAM=9:35758MYVAR=some_value
+
 2. Ознакомьтесь с опциями node_exporter и выводом /metrics по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 
 Ответ:
