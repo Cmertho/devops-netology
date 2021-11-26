@@ -14,7 +14,7 @@
     Description=Node Exporter
 
     [Service]
-    ExecStart=/usr/local/bin/node_exporter
+    ExecStart=/usr/local/bin/node_exporter $OPTIONS
     EnvironmentFile=/etc/default/node_exporter
 
     [Install]
@@ -55,9 +55,14 @@
 
 Ответ:
 
+Предается по средством добавления из файла `EnvironmentFile` параметров окружения как в данном случае `OPTIONS`
+
     vagrant@vagrant:/etc/systemd/system$ sudo cat /proc/1809/environ
     LANG=en_US.UTF-8LANGUAGE=en_US:PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
     INVOCATION_ID=0fcb24d52895405c875cbb9cbc28d3ffJOURNAL_STREAM=9:35758MYVAR=some_value
+    OPTIONS="--collector.textfile.directory /var/lib/node_exporter/textfile_collector"
+    vagrant@vagrant:cat /etc/default/node_exporter
+    OPTIONS="--collector.textfile.directory /var/lib/node_exporter/textfile_collector"
 
 2. Ознакомьтесь с опциями node_exporter и выводом /metrics по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 
