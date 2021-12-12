@@ -134,6 +134,7 @@ telnet: Unable to connect to remote host: Resource temporarily unavailable
     vault write pki_int/issue/example-dot-com common_name="test.dozolin.devops.ru" ttl="720h"
 
 ![Screenshot](img/vault.jpg)
+
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 
 Ответ:
@@ -203,4 +204,27 @@ Dec 12 18:22:01 vagrant CRON[9027]: (root) CMD (python3 /etc/cert_script/main.py
 Dec 12 19:01:01 vagrant CRON[11387]: (root) CMD (sh /etc/cert_script/generate.sh )
 Dec 12 19:02:01 vagrant CRON[11392]: (root) CMD (sh /etc/cert_script/generate.sh )
 Dec 12 19:03:01 vagrant CRON[11401]: (root) CMD (sh /etc/cert_script/generate.sh )
+
+systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2021-12-12 18:00:04 UTC; 1h 37min ago
+       Docs: man:nginx(8)
+    Process: 8400 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 8401 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 11412 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 8412 (nginx)
+      Tasks: 3 (limit: 1112)
+     Memory: 6.9M
+     CGroup: /system.slice/nginx.service
+             ├─ 8412 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+             ├─11413 nginx: worker process
+             └─11414 nginx: worker process
+
+Dec 12 18:20:01 vagrant systemd[1]: Reloading A high performance web server and a reverse proxy server.
+Dec 12 18:21:01 vagrant systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+Dec 12 18:22:01 vagrant systemd[1]: Reloading A high performance web server and a reverse proxy server.
+Dec 12 19:01:01 vagrant systemd[1]: Reloading A high performance web server and a reverse proxy server.
+Dec 12 19:02:01 vagrant systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+Dec 12 19:03:01 vagrant systemd[1]: Reloading A high performance web server and a reverse proxy server.
 ```
