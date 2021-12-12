@@ -132,6 +132,8 @@ telnet: Unable to connect to remote host: Resource temporarily unavailable
     vault write -format=json pki/root/sign-intermediate csr=@pki_intermediate.csr      format=pem_bundle ttl="43800h"      | jq -r '.data.certificate' > intermediate.cert.pem
     vault write pki_int/intermediate/set-signed certificate=@intermediate.cert.pem
     vault write pki_int/issue/example-dot-com common_name="test.dozolin.devops.ru" ttl="720h"
+
+![Screenshot](img/vault.jpg)
 5. Установите корневой сертификат созданного центра сертификации в доверенные в хостовой системе.
 
 Ответ:
