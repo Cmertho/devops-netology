@@ -16,4 +16,4 @@ then
 else
     rm /etc/cert_script/data.json
     echo "Generation problem"
-if
+fi
